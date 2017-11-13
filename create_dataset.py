@@ -7,9 +7,7 @@ DATA_LEN = 1000
 
 def main():
   data_x = np.linspace(0, 10, DATA_LEN)
-  l = []
-  for i in range(NUM_DATASET):
-    l.append(np.sin(2.0 * np.pi * data_x) + normal(loc=0.0, scale=0.3, size=DATA_LEN))
+  l = [np.sin(2.0 * np.pi * data_x) + normal(loc=0.0, scale=0.3, size=DATA_LEN) for _ in range(NUM_DATASET)]
   df = DataFrame(np.array(l))
   train = df[0:int(NUM_DATASET*0.8)]
   test = df[int(NUM_DATASET*0.8):NUM_DATASET]
